@@ -3,19 +3,12 @@ import jwt from "jsonwebtoken"
 import config from "../config/config"
 
 export const login = async (req: any, res: any) => {
-<<<<<<< HEAD
   const { email, password } = req.body
 
   if (!(email && password)) {
-=======
-  const { username, password } = req.body
-
-  // Nálunk a username = email (Felhasznalo.email)
-  if (!(username && password)) {
->>>>>>> ccac39ed0df24a7a3d3bdbb84ac948bf576c8b1b
     return res
       .status(400)
-      .send({ error: "Nem megfelelően megadott adatok (username, password)!" })
+      .send({ error: "Nem megfelelően megadott adatok (email, password)!" })
   }
 
   const connection = await mysql.createConnection(config.database)
@@ -31,11 +24,7 @@ export const login = async (req: any, res: any) => {
       FROM Felhasznalo
       WHERE email = ? AND jelszo = ?
     `,
-<<<<<<< HEAD
       [email, password]
-=======
-      [username, password]
->>>>>>> ccac39ed0df24a7a3d3bdbb84ac948bf576c8b1b
     )) as Array<any>
 
     if (rows.length === 0) {
@@ -65,10 +54,5 @@ export const login = async (req: any, res: any) => {
 }
 
 export const logout = async (_req: any, res: any) => {
-<<<<<<< HEAD
-
-=======
-  // Demo: nincs token blacklisting, csak 200 OK
->>>>>>> ccac39ed0df24a7a3d3bdbb84ac948bf576c8b1b
   res.status(200).send({ message: "Sikeres kijelentkezés" })
 }
