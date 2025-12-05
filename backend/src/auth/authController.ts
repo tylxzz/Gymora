@@ -3,9 +3,9 @@ import jwt from "jsonwebtoken"
 import config from "../config/config"
 
 export const login = async (req: any, res: any) => {
-  const { username, password } = req.body
+  const { email, password } = req.body
 
-  if (!(username && password)) {
+  if (!(email && password)) {
     return res
       .status(400)
       .send({ error: "Nem megfelelően megadott adatok (username, password)!" })
@@ -24,7 +24,7 @@ export const login = async (req: any, res: any) => {
       FROM Felhasznalo
       WHERE email = ? AND jelszo = ?
     `,
-      [username, password]
+      [email, password]
     )) as Array<any>
 
     if (rows.length === 0) {
