@@ -1,12 +1,15 @@
+import Footer from "./components/Footer"
 import LandingPage from "./pages/LandingPage"
 import OurStoryPage from "./pages/OurStoryPage"
 
 function App() {
-
   return (
-    <>
-      <LandingPage></LandingPage>
-    </>
+    <div className="app-root">
+      <main className="page-main">
+        <LandingPage />
+      </main>
+      <Footer />
+    </div>
   )
 }
 
