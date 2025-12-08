@@ -1,18 +1,35 @@
-import Footer from "./components/Footer"
-import Navbar from "./components/Navbar"
-import LandingPage from "./pages/LandingPage"
-import OurStoryPage from "./pages/OurStoryPage"
+import React from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import LandingPage from "./pages/LandingPage";
+import OurStoryPage from "./pages/OurStoryPage";
+import LoginPage from "./auth/LoginPage";
+import RegisterPage from "./auth/RegisterPage";
 
-function App() {
+const AppLayout = () => {
+  const location = useLocation();
+  const isAuthPage =
+    location.pathname === "/login" || location.pathname === "/register";
+
   return (
     <div className="app-root">
-      <Navbar />
-      <main className="page-main">
-        <LandingPage />
-      </main>
-      <Footer />
-    </div>
-  )
-}
+      {!isAuthPage && <Navbar />}
 
-export default App
+      <main className={isAuthPage ? "page-main auth-main" : "page-main"}>
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/our-story" element={<OurStoryPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+        </Routes>
+      </main>
+
+      {!isAuthPage && <Footer />}
+    </div>
+  );
+};
+
+const App = () => <AppLayout />;
+
+export default App;
