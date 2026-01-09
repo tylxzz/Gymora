@@ -11,16 +11,15 @@ export default function Navbar() {
                 </div>
 
                 <nav className="topbar-nav">
-                    <a href="#features" className="topbar-link">
+                    <a href="/#features" className="topbar-link">
                         Features
                     </a>
-                    <a href="#pricing" className="topbar-link">
+                    <a href="/#pricing" className="topbar-link">
                         Pricing
                     </a>
-                    <a href="#about" className="topbar-link">
+                    <a href="/#about" className="topbar-link">
                         About
                     </a>
-                    <NavLink to="/our-story" className="topbar-link"></NavLink>
                 </nav>
 
                 <div className="topbar-right">

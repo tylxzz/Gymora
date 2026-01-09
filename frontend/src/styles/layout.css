@@ -433,3 +433,471 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* ==== DASHBOARD LAYOUT (ADMIN / TRAINER / USER) ==== */
+
+/* ==== DASHBOARD LAYOUT (ADMIN / TRAINER / USER) ==== */
+
+.dashboard-main {
+  padding: 0;
+}
+
+/* teljes háttér a kártyák mögött – ugyanaz a szürke, mint a landingnél */
+.dashboard-shell {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--bg-page);
+}
+
+/* SIDEBAR – világos, fehér, kék kiemelés, mint a Figma maketten */
+
+.dashboard-sidebar {
+  width: 220px;
+  background-color: #ffffff;
+  color: var(--text-main);
+  padding: 20px 18px;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--border-soft);
+}
+
+.sidebar-logo {
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  font-size: 0.8rem;
+  margin-bottom: 24px;
+  color: var(--blue-main);
+}
+
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sidebar-label {
+  border: none;
+  background: none;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 12px 10px 4px;
+  text-align: left;
+}
+
+/* alap sidebar gomb / link */
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: none;
+  background: none;
+  font-size: 0.85rem;
+  cursor: pointer;
+  text-align: left;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.sidebar-icon {
+  font-size: 1rem;
+  color: var(--text-muted);
+}
+
+/* hover – világos kék háttér, kék ikon, Figma-s hatás */
+
+.sidebar-item:hover {
+  background-color: var(--blue-soft);
+  color: var(--blue-main);
+}
+
+.sidebar-item:hover .sidebar-icon {
+  color: var(--blue-main);
+}
+
+/* ha NavLink-nél aktív class-t is használsz, akkor így néz ki az aktív menüpont */
+
+.sidebar-item.active {
+  background-color: var(--blue-main);
+  color: #ffffff;
+}
+
+.sidebar-item.active .sidebar-icon {
+  color: #ffffff;
+}
+
+/* (ha vannak “disabled” jellegű itemek, maradhat) */
+.sidebar-item-disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+/* CONTENT RÉSZ */
+
+.dashboard-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* top bar – fehér, vékony szegély, mint a Figma admin header */
+
+.dashboard-topbar {
+  height: 60px;
+  background-color: #ffffff;
+  border-bottom: 1px solid var(--border-soft);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+}
+
+.dashboard-title {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.topbar-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.topbar-user-info {
+  text-align: right;
+  font-size: 0.8rem;
+}
+
+.topbar-user-name {
+  display: block;
+}
+
+.topbar-user-role {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+}
+
+.topbar-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  background: var(--blue-main);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* oldal tartalma */
+
+.dashboard-page {
+  padding: 20px 24px 30px;
+}
+
+/* KÁRTYÁK, PANEL, TÁBLÁK – ezek is ugyanazt a kék/fehér/halvány-szürke stílust kapják */
+
+.dash-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.dash-stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.dash-stat-card {
+  background-color: #ffffff;
+  border-radius: 14px;
+  padding: 14px 16px;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid var(--border-soft);
+}
+
+.dash-stat-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.dash-stat-value {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-top: 4px;
+}
+
+.dash-stat-sub {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.dash-middle-row {
+  display: grid;
+  grid-template-columns: 2.1fr 1fr;
+  gap: 16px;
+}
+
+.dash-panel {
+  background-color: #ffffff;
+  border-radius: 14px;
+  padding: 14px 16px 16px;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid var(--border-soft);
+}
+
+.dash-panel-small {
+  max-width: 320px;
+}
+
+.dash-panel-header h2 {
+  font-size: 0.95rem;
+  margin: 0 0 10px;
+}
+
+.dash-chart-placeholder {
+  height: 180px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+/* diagram – Figma-s világoskék gradient oszlopok */
+
+.chart-bar-row {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.chart-bar-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+}
+
+.chart-bar {
+  width: 100%;
+  border-radius: 999px 999px 0 0;
+  background: linear-gradient(180deg, #60a5fa, #1d4ed8);
+}
+
+.chart-bar-label {
+  font-size: 0.7rem;
+  color: #9ca3af;
+}
+
+/* listák és táblázatok */
+
+.dash-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.8rem;
+}
+
+.dash-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.dash-list li:last-child {
+  border-bottom: none;
+}
+
+.dash-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 6px;
+  font-size: 0.78rem;
+}
+
+.dash-table th,
+.dash-table td {
+  padding: 6px 8px;
+  text-align: left;
+  border-bottom: 1px solid #eef1f5;
+}
+
+.dash-table th {
+  font-weight: 600;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* státusz badge-ek */
+
+.status-pill {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+}
+
+.status-success {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.status-pending {
+  background-color: #fef9c3;
+  color: #92400e;
+}
+
+/* órarend grid (admin schedule) */
+
+.schedule-grid {
+  border-radius: 10px;
+  border: 1px solid var(--border-soft);
+  overflow: hidden;
+  font-size: 0.75rem;
+}
+
+.schedule-row {
+  display: grid;
+  grid-template-columns: 70px repeat(5, 1fr);
+}
+
+.schedule-header-row {
+  background-color: #f9fafb;
+  font-weight: 600;
+}
+
+.schedule-cell {
+  border-bottom: 1px solid var(--border-soft);
+  border-right: 1px solid var(--border-soft);
+  padding: 6px 8px;
+  min-height: 36px;
+}
+
+.schedule-row .schedule-cell:last-child {
+  border-right: none;
+}
+
+.schedule-time-cell {
+  background-color: #f9fafb;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.schedule-day-cell {
+  text-align: center;
+}
+
+.schedule-pill {
+  display: inline-block;
+  background-color: #dbeafe;
+  color: #1d4ed8;
+  border-radius: 999px;
+  padding: 2px 8px;
+}
+
+.schedule-pill-secondary {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+/* Inline űrlap a dash-panel tetején */
+
+.inline-form {
+  font-size: 0.8rem;
+}
+
+.inline-form-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.inline-form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.inline-form-group.small {
+  max-width: 180px;
+}
+
+.inline-form-group label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.inline-form-group input,
+.inline-form-group select {
+  border-radius: 999px;
+  border: 1px solid var(--border-soft);
+  padding: 0.45rem 0.8rem;
+  font-size: 0.8rem;
+  background-color: #f9fafb;
+  outline: none;
+  transition: border-color 0.16s, background-color 0.16s, box-shadow 0.16s;
+}
+
+.inline-form-group input:focus,
+.inline-form-group select:focus {
+  border-color: var(--blue-main);
+  background-color: #ffffff;
+  box-shadow: 0 0 0 1px rgba(31, 122, 224, 0.16);
+}
+
+.inline-form-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.btn-ghost-small {
+  border-radius: 999px;
+  padding: 0.4rem 0.9rem;
+  border: 1px solid var(--border-soft);
+  background-color: #ffffff;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.btn-ghost-small:hover {
+  background-color: #f3f4f6;
+}
+
+/* táblázat action gombok */
+
+.table-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-table-link {
+  border: none;
+  background: none;
+  padding: 0;
+  font-size: 0.78rem;
+  color: var(--blue-main);
+  cursor: pointer;
+}
+
+.btn-table-link:hover {
+  text-decoration: underline;
+}
+
+.btn-table-danger {
+  color: #dc2626;
+}

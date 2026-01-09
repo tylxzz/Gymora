@@ -1,5 +1,6 @@
 import { FiCalendar, FiUsers, FiBarChart2 } from "react-icons/fi";
 import fitness from '../assets/fitness-equipment.png'
+import { Link } from "react-router-dom";
 
 export default function LandingPage() {
     return (
@@ -12,8 +13,8 @@ export default function LandingPage() {
                             Comprehensive fitness center management with modern scheduling, membership tracking, and analytics
                         </p>
                         <div className="hero-actions">
-                            <button className="btn btn-hero-primary">Get Started</button>
-                            <button className="btn btn-hero-ghost">Learn More</button>
+                            <Link to="/register" className="btn btn-hero-primary">Get Started</Link>
+                            <Link to="/our-story" className="btn btn-hero-ghost">Learn More</Link>
                         </div>
                     </div>
 
